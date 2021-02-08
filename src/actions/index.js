@@ -1,1 +1,7 @@
-// TODO: add and export your own actions
+import msgsFile from './msgs'
+export function setMsgs() {
+ return {
+   type: 'SET_MSGS',
+   payload: msgsFile
+ }
+}
