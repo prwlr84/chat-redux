@@ -2,6 +2,32 @@ body {
   font-family: Helvetica;
 }
 .app {
+  display: flex;
+  align-content: flex-end;
   margin-top: 20px;
   margin-bottom: 20px;
+}
+
+div.row {
+    display: flex;
+    align-content: flex-end;
+
+  .msgs-list{
+    overflow-y: scroll;
+  }
+
+
+  .channel-list {
+    background-color: yellow;
+    height: 100vh;
+
+  }
+
+}
+
+div.msg {
+  border: 3px solid white;
+  margin: 5px;
+  border-radius: 5px;
+  color: #ffddff
 }
