@@ -1,5 +1,4 @@
 export default function(state,action) {
-  console.log(state,action);
   if(state === undefined){
     return []
   }
@@ -9,6 +8,6 @@ export default function(state,action) {
     console.log(action.payload);
   } else {
     return state;
-    console.log('fucked')
+    console.log('fucked');
   }
 }
