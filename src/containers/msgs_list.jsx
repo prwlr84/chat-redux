@@ -21,12 +21,13 @@ class MsgsList extends Component {
 
   render(){
     return(
-      <div className="msgs-list col-sm-7" style={{backgroundColor: 'purple', height: '100vh'}}>
-        {this.props.msgs.map( msg => <Msg msg={msg} key={msg.content} />)}
-      </div>
-    )
+        <div className="msgs-list col-sm-7" style={{backgroundColor: 'purple', height: '100vh'}}>
+          {this.props.msgs.map( msg => <Msg msg={msg} key={msg.created_at} />)}
+        </div>
+      )
   }
 }
+
 
 
 function mapDispatchToProps(dispatch) {
@@ -38,7 +39,7 @@ function mapDispatchToProps(dispatch) {
 
 function mapStateToProps(state) {
  return {
-  msgs: state.msgs
+  msgs: state.msgs.messages
  };
 }
 
