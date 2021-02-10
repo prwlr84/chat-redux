@@ -3,11 +3,11 @@ export default function(state,action) {
     return []
   }
 
-  if (action.type === 'SET_MSGS'){
-    return action.payload;
-    console.log(action.payload);
-  } else {
-    return state;
-    console.log('fucked');
+  switch (action.type) {
+    case 'SET_MSGS':
+      return action.payload
+      break;
+    default:
+      return state;
   }
 }

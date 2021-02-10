@@ -1,6 +1,6 @@
 import msgsFile from './msgs'
 export function setMsgs() {
-  let p = fetch('https://wagon-chat.herokuapp.com/general/messages')
+  const p = fetch('https://wagon-chat.herokuapp.com/general/messages')
     .then(response => response.json());
   return {
     type: 'SET_MSGS',
@@ -24,4 +24,13 @@ export function createMessage(data) {
 .catch((error) => {
   console.error('Error:', error);
 });
+}
+
+export function setUsr(){
+  const usr = prompt("Username") || "anonymus"
+
+  return {
+   type: 'SET_USR',
+   payload: usr
+   }
 }

@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { createMessage } from '../actions/index';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { setUsr } from '../actions';
 
 class MsgForm extends Component {
   constructor(props) {
@@ -15,13 +18,17 @@ class MsgForm extends Component {
   }
 
   handleSubmit(event) {
-
+    event.preventDefault();
     const text = {
       channel: 'general',
-      author: 'B',
+      author: this.props.author,
       content: this.state.value
     }
     createMessage(text);
+  }
+
+  componentWillMount(){
+    this.props.setUsr();
   }
 
   render() {
@@ -36,4 +43,18 @@ class MsgForm extends Component {
   }
 }
 
-export default MsgForm;
+function mapDispatchToProps(dispatch) {
+ return bindActionCreators(
+ { setUsr: setUsr },
+ dispatch
+ );
+}
+
+function mapStateToProps(state) {
+  console.log(state);
+ return {
+  author: state.curUsr
+ };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(MsgForm);
