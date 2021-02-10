@@ -15,10 +15,11 @@ class MsgsList extends Component {
   }]
   }
 
-
   componentWillMount(){
      this.props.setMsgs();
+     window.setInterval(()=>{this.props.setMsgs()}, 5000);
   }
+
 
   render(){
     return(
