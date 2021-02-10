@@ -14,12 +14,6 @@ import activeChannelReducer from './reducers/activeChannel_reducer';
 import curUsrReducer from './reducers/curUsr_reducer';
 import App from './components/app';
 // State and reducers
-const state = {
-  msgs: [],
-  channels: ['general', 'react', 'paris'],
-  activeChannel: 'general',
-  curUsr:  `anonymous${Math.floor(10 + (Math.random() * 90))}` //prompt("What is your username?") ||
-};
 
 const reducers = combineReducers({
   msgs: msgsReducer,
