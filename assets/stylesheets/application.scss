@@ -1,6 +1,11 @@
 body {
   font-family: Helvetica;
 }
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
 .app {
   display: flex;
   align-content: flex-end;
@@ -9,8 +14,6 @@ body {
 }
 
 div.row {
-    display: flex;
-    align-content: flex-end;
 
   .msgs-list{
     overflow-y: scroll;
@@ -30,4 +33,14 @@ div.msg {
   margin: 5px;
   border-radius: 5px;
   color: #ffddff
+}
+
+div.msg-panel {
+  padding: 0;
+
+  div.form {
+    display: flex;
+    justify-content: center;
+    margin-top: 2%;
+  }
 }
