@@ -25,6 +25,7 @@ class MsgForm extends Component {
       content: this.state.value
     }
     createMessage(text);
+    this.setState({value:''});
   }
 
   componentWillMount(){
