@@ -3,6 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { setMsgs } from '../actions';
 import Msg from '../components/msg';
+import MsgForm from './message_form';
 
 
 class MsgsList extends Component {
@@ -21,7 +22,7 @@ class MsgsList extends Component {
 
   render(){
     return(
-        <div className="msgs-list col-sm-7" style={{backgroundColor: 'purple', height: '100vh'}}>
+        <div className="msgs-list" style={{backgroundColor: 'purple', height: '90vh'}}>
           {this.props.msgs.map( msg => <Msg msg={msg} key={msg.created_at} />)}
         </div>
       )

@@ -1,10 +1,5 @@
 import msgsFile from './msgs'
 export function setMsgs() {
-//  return {
-//    type: 'SET_MSGS',
-//    payload: msgsFile
-//  }
-// }
   let p = fetch('https://wagon-chat.herokuapp.com/general/messages')
     .then(response => response.json());
   return {
@@ -12,3 +7,21 @@ export function setMsgs() {
     payload: p
   };
 };
+
+export function createMessage(data) {
+  console.log(data);
+  fetch('https://wagon-chat.herokuapp.com/general/messages', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(data),
+  })
+.then(response => response.json())
+.then(data => {
+  console.log('Success:', data);
+})
+.catch((error) => {
+  console.error('Error:', error);
+});
+}
