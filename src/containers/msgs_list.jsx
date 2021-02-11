@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { setMsgs } from '../actions';
+import { createRef } from 'react';
 import Msg from '../components/msg';
 import MsgForm from './message_form';
 
@@ -17,13 +18,24 @@ class MsgsList extends Component {
 
   componentWillMount(){
      this.props.setMsgs();
-     window.setInterval(()=>{this.props.setMsgs()}, 5000);
+     //window.setInterval(()=>{this.props.setMsgs()}, 5000);
   }
 
+  componentDidMount() {
+    this.refresher = setInterval(()=>{this.props.setMsgs()}, 2000);
+  }
+
+  componentDidUpdate() {
+    this.list.scrollTop = this.list.scrollHeight;
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.refresher);
+  }
 
   render(){
     return(
-        <div className="msgs-list" style={{backgroundColor: 'purple', height: '90vh'}}>
+        <div className="msgs-list" ref={(list) => { this.list = list; }} style={{backgroundColor: 'purple', height: '90vh'}}>
           {this.props.msgs.map( msg => <Msg msg={msg} key={msg.created_at} />)}
         </div>
       )
