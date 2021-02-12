@@ -33,11 +33,15 @@ class MsgForm extends Component {
     this.props.setUsr();
   }
 
+  componentDidMount() {
+    this.messageBox.focus();
+  }
+
   render() {
     return (
       <div className="form">
         <form onSubmit={this.handleSubmit}>
-          <input id='focus' type="text" value={this.state.value} onChange={this.handleChange} />
+          <input ref={(input) => { this.messageBox = input; }} id='focus' type="text" value={this.state.value} onChange={this.handleChange} />
           <input type="submit"/>
         </form>
       </div>

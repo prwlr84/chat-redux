@@ -9,11 +9,7 @@ import MsgForm from './message_form';
 
 class MsgsList extends Component {
   static defaultProps = {
-   msgs: [{
-    "author":"anonymous98",
-    "content":"Hello world!",
-    "created_at":"2017-09-26T16:03:16.365Z"
-  }]
+   msgs: []
   }
 
   componentWillMount(){
