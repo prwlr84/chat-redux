@@ -5,16 +5,17 @@ import { setActiveChannel } from '../actions';
 import { createRef } from 'react';
 
 class Channels extends Component {
-  changeTheChannel(c){
-    console.log(c);
+
+  componentWillMount(){
+    this.props.setActiveChannel();
   }
 
-  render(){
+ render(){
    return(
     <div className='channels col-sm-3'>
       <h4>{this.props.activeChannel}</h4>
       <ul>
-        {this.props.channels.map(ch => <li key={ch} onClick={this.changeTheChannel.bind(this,ch)}>{ch}</li>)}
+        {this.props.channels.map(ch => <li key={ch} onClick={()=>this.props.setActiveChannel(ch)}>{ch}</li>)}
       </ul>
     </div>
     )

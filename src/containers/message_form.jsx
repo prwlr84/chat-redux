@@ -20,7 +20,7 @@ class MsgForm extends Component {
   handleSubmit(event) {
     event.preventDefault();
     const text = {
-      channel: 'general',
+      channel: this.props.active,
       author: this.props.author,
       content: this.state.value
     }
@@ -52,9 +52,9 @@ function mapDispatchToProps(dispatch) {
 }
 
 function mapStateToProps(state) {
-  console.log(state);
  return {
-  author: state.curUsr
+  author: state.curUsr,
+  active: state.activeChannel
  };
 }
 
