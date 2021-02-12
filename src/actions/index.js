@@ -1,7 +1,7 @@
 import msgsFile from './msgs'
-export function setMsgs() {
-  const p = fetch('https://wagon-chat.herokuapp.com/general/messages')
-    .then(response => response.json());
+export function setMsgs(active) {
+    const p = fetch(`https://wagon-chat.herokuapp.com/${active}/messages`)
+      .then(response => response.json());
   return {
     type: 'SET_MSGS',
     payload: p
@@ -27,7 +27,7 @@ export function createMessage(data) {
 }
 
 export function setUsr(){
-  const usr =  "anonymus" //prompt("Username") ||
+  const usr = prompt("Username") || "anonymus"
 
   return {
    type: 'SET_USR',
@@ -35,9 +35,15 @@ export function setUsr(){
    }
 }
 
-export function setActiveChannel(channels) {
+export function setActiveChannel(channel) {
+  if(channel){
   return{
     type: 'SET_ACTIVE_CHANNEL',
-    payload: channels
+    payload: channel
+  }} else {
+  return{
+    type: 'SET_ACTIVE_CHANNEL',
+    payload: 'general'
+  }
   }
 }

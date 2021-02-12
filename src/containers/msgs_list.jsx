@@ -17,12 +17,13 @@ class MsgsList extends Component {
   }
 
   componentWillMount(){
-     this.props.setMsgs();
+
+     this.props.setMsgs(this.props.activeChannel);
      //window.setInterval(()=>{this.props.setMsgs()}, 5000);
   }
 
   componentDidMount() {
-    this.refresher = setInterval(()=>{this.props.setMsgs()}, 20000);
+    this.refresher = setInterval(()=>{this.props.setMsgs(this.props.activeChannel)}, 2000);
   }
 
   componentDidUpdate() {
@@ -53,6 +54,7 @@ function mapDispatchToProps(dispatch) {
 
 function mapStateToProps(state) {
  return {
+  activeChannel: state.activeChannel,
   msgs: state.msgs.messages
  };
 }

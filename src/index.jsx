@@ -16,7 +16,7 @@ import App from './components/app';
 // State and reducers
 const initialState = {
   channels: ['general', 'amsterdam', 'spain'],
-  activeChannel: 'general',
+  activeChannel: '',
   curUsr: '',
   msgs: []
 }
