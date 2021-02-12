@@ -14,6 +14,12 @@ import activeChannelReducer from './reducers/activeChannel_reducer';
 import curUsrReducer from './reducers/curUsr_reducer';
 import App from './components/app';
 // State and reducers
+const initialState = {
+  channels: ['general', 'amsterdam', 'spain'],
+  activeChannel: 'general',
+  curUsr: '',
+  msgs: []
+}
 
 const reducers = combineReducers({
   msgs: msgsReducer,
@@ -27,7 +33,7 @@ const middlewares = composeEnhancers(applyMiddleware( logger, reduxPromise));
 
 // render an instance of the component in the DOM
 ReactDOM.render(
-  <Provider store={createStore(reducers, {}, middlewares)}>
+  <Provider store={createStore(reducers, initialState, middlewares)}>
     <App />
   </Provider>,
   document.getElementById('root')
