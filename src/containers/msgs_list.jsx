@@ -36,7 +36,7 @@ class MsgsList extends Component {
 
   render(){
     return(
-        <div className="msgs-list" ref={(list) => { this.list = list; }} style={{backgroundColor: 'purple', height: '90vh'}}>
+        <div className="msgs-list" ref={(list) => { this.list = list; }} style={{height: '90vh'}}>
           {this.props.msgs.map( msg => <Msg msg={msg} key={msg.created_at} />)}
         </div>
       )

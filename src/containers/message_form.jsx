@@ -3,6 +3,7 @@ import { createMessage } from '../actions/index';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { setUsr } from '../actions';
+import { setMsgs } from '../actions';
 
 class MsgForm extends Component {
   constructor(props) {
@@ -36,7 +37,7 @@ class MsgForm extends Component {
     return (
       <div className="form">
         <form onSubmit={this.handleSubmit}>
-          <input type="text" value={this.state.value} onChange={this.handleChange} />
+          <input id='focus' type="text" value={this.state.value} onChange={this.handleChange} />
           <input type="submit"/>
         </form>
       </div>

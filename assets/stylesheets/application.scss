@@ -21,7 +21,8 @@ div.row {
 
 
   .channels {
-    background-color: yellow;
+    color: white;
+    background-color: rgba(17, 90, 160,1);
     height: 100vh;
 
   }
@@ -29,18 +30,40 @@ div.row {
 }
 
 div.msg {
-  border: 3px solid white;
+  padding: 15px;
+  border: 1px solid rgba(17, 90, 160,0.3);
   margin: 5px;
-  border-radius: 5px;
-  color: #ffddff
+  border-radius: 25px;
+  color: rgba(17, 90, 160,1);
 }
 
 div.msg-panel {
+
   padding: 0;
+
+  div.msgs-list{
+    background-color: white;
+  }
 
   div.form {
     display: flex;
     justify-content: center;
     margin-top: 2%;
+
+    input:first-child{
+      width: 30vw;
+      border-radius: 25px;
+      border: 1px solid rgba(17, 90, 160,1);
+      margin: 5px;
+    }
+
+    input:last-child{
+      width: 10vw;
+      border-radius: 25px;
+      border: 1px solid rgba(17, 90, 160,1);
+      color: rgba(17, 90, 160,1);
+      background-color: rgba(17, 90, 160,0.3);
+      margin: 5px;
+    }
   }
 }
