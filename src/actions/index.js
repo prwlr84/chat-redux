@@ -27,10 +27,17 @@ export function createMessage(data) {
 }
 
 export function setUsr(){
-  const usr = prompt("Username") || "anonymus"
+  const usr =  "anonymus" //prompt("Username") ||
 
   return {
    type: 'SET_USR',
    payload: usr
    }
+}
+
+export function setActiveChannel(channels) {
+  return{
+    type: 'SET_ACTIVE_CHANNEL',
+    payload: channels
+  }
 }

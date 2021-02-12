@@ -22,7 +22,7 @@ class MsgsList extends Component {
   }
 
   componentDidMount() {
-    this.refresher = setInterval(()=>{this.props.setMsgs()}, 2000);
+    this.refresher = setInterval(()=>{this.props.setMsgs()}, 20000);
   }
 
   componentDidUpdate() {
